@@ -2,6 +2,7 @@
 
 //Remove unused scripts loaded by Elementor
 function wpse_elementor_frontend_scripts() {
+    //you can change yourself for which pages the conditional logic below accounts
 	if(is_front_page()) {
 		// Dequeue and deregister swiper
 		wp_dequeue_script( 'swiper' );
@@ -15,7 +16,7 @@ function wpse_elementor_frontend_scripts() {
 		wp_dequeue_script( 'elementor-frontend' );
 		wp_deregister_script( 'elementor-frontend' );
 
-		// Re-register elementor-frontend without the elementor-dialog dependency.
+		// Re-register elementor-frontend without the elementor-dialog/swiper dependency.
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		wp_register_script(
 				'elementor-frontend',
